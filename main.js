@@ -12,9 +12,9 @@ animate();
 
 function animate() {
   for (let i = 0; i < traffic.length; i++) {
-    traffic[i].update(road.borders);
+    traffic[i].update(road.borders, []);
   }
-  car.update(road.borders);
+  car.update(road.borders, traffic);
   canvas.height = window.innerHeight;
   ctx.save();
   ctx.translate(0, -car.y + canvas.height * 0.7);
