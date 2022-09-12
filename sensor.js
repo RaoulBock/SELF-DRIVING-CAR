@@ -6,16 +6,26 @@ class Sensor {
     this.raySpread = Math.PI / 4;
 
     this.rays = [];
+    this.readings = [];
   }
 
-  update() {
+  update(roadBorders) {
+    this.#castRays();
+    this.readings = [];
+    for (let i = 0; i < this.rays.length; i++) {
+      this.readings.push(this.#getReading(this.rays[i], roadBorders));
+    }
+  }
+
+  #castRays() {
     this.rays = [];
     for (let i = 0; i < this.rayCount; i++) {
-      const rayAngle = lerp(
-        this.raySpread / 2,
-        -this.raySpread / 2,
-        i / (this.rayCount - 1)
-      );
+      const rayAngle =
+        lerp(
+          this.raySpread / 2,
+          -this.raySpread / 2,
+          this.rayCount == 1 ? 0.5 : i / (this.rayCount - 1)
+        ) + this.car.angle;
 
       const start = { x: this.car.x, y: this.car.y };
       const end = {
@@ -25,6 +35,8 @@ class Sensor {
       this.rays.push([start, end]);
     }
   }
+  #getReading(rays, roadBorders) {}
+
   draw(ctx) {
     try {
       for (let i = 0; i < this.rayCount; i++) {
