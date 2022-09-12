@@ -107,12 +107,12 @@ class Car {
     this.y -= Math.cos(this.angle) * this.speed;
   }
 
-  draw(ctx) {
+  draw(ctx, color) {
     try {
       if (this.damaged) {
         ctx.fillStyle = "gray";
       } else {
-        ctx.fullStyle = "black";
+        ctx.fullStyle = color;
       }
       ctx.beginPath();
       ctx.moveTo(this.polygon[0].x, this.polygon[0].y);
