@@ -2,13 +2,15 @@ body {
     margin: 0;
     background-color: darkgray;
     overflow: hidden;
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 #carCanvas {
     background-color: lightgray;
     
 }
-#networkCanvas {
+/* #networkCanvas {
     background-color: rgb(0, 0, 0);
     
-}
+} */
