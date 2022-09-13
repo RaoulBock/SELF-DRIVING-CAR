@@ -15,7 +15,6 @@ class Car {
     if (controlType != "DUMMY") {
       this.sensor = new Sensor(this);
     }
-
     this.controls = new Controls(controlType);
   }
 
@@ -36,7 +35,6 @@ class Car {
         return true;
       }
     }
-
     for (let i = 0; i < traffic.length; i++) {
       if (polysIntersect(this.polygon, traffic[i].polygon)) {
         return true;
@@ -108,23 +106,20 @@ class Car {
   }
 
   draw(ctx, color) {
-    try {
-      if (this.damaged) {
-        ctx.fillStyle = "gray";
-      } else {
-        ctx.fullStyle = color;
-      }
-      ctx.beginPath();
-      ctx.moveTo(this.polygon[0].x, this.polygon[0].y);
-      for (let i = 1; i < this.polygon.length; i++) {
-        ctx.lineTo(this.polygon[i].x, this.polygon[i].y);
-      }
-      ctx.fill();
-      if (this.sensor) {
-        this.sensor.draw(ctx);
-      }
-    } catch (error) {
-      console.log(error);
+    if (this.damaged) {
+      ctx.fillStyle = "gray";
+    } else {
+      ctx.fillStyle = color;
+    }
+    ctx.beginPath();
+    ctx.moveTo(this.polygon[0].x, this.polygon[0].y);
+    for (let i = 1; i < this.polygon.length; i++) {
+      ctx.lineTo(this.polygon[i].x, this.polygon[i].y);
+    }
+    ctx.fill();
+
+    if (this.sensor) {
+      this.sensor.draw(ctx);
     }
   }
 }
