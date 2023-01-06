@@ -10,7 +10,7 @@ class Controls {
         this.#addKeyboardListeners();
         break;
       case "DUMMY":
-        this.forward = true;
+        this.reverse = true;
         break;
     }
   }

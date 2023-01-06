@@ -1,7 +1,7 @@
 class Sensor {
   constructor(car) {
     this.car = car;
-    this.rayCount = 8;
+    this.rayCount = 10;
     this.rayLength = 150;
     this.raySpread = Math.PI / 2;
 
@@ -69,7 +69,7 @@ class Sensor {
       const start = { x: this.car.x, y: this.car.y };
       const end = {
         x: this.car.x - Math.sin(rayAngle) * this.rayLength,
-        y: this.car.y - Math.cos(rayAngle) * this.rayLength,
+        y: this.car.y - Math.cos(rayAngle) * this.rayLength
       };
       this.rays.push([start, end]);
     }
