@@ -22,9 +22,9 @@ if (localStorage.getItem("bestBrain")) {
 }
 
 const traffic = [];
-const numCars = 500;
+const numCars = 2000;
 const startY = -50000;
-const yInterval = 200;
+const yInterval = 170;
 
 for (let i = 0; i < numCars; i++) {
   traffic.push(new Car(road.getLaneCenter(Math.floor(Math.random() * 3)), startY + i * yInterval, 30, 50, "DUMMY", 2));
