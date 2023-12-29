@@ -22,7 +22,7 @@ if (localStorage.getItem("bestBrain")) {
 }
 
 const traffic = [];
-const numCars = 20000;
+const numCars = 2100;
 const startY = -50000;
 const yInterval = 170;
 
