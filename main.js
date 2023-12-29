@@ -27,7 +27,7 @@ const startY = -50000;
 const yInterval = 170;
 
 for (let i = 0; i < numCars; i++) {
-  traffic.push(new Car(road.getLaneCenter(Math.floor(Math.random() * 3)), startY + i * yInterval, 30, 50, "DUMMY", 2));
+  traffic.push(new Car(road.getLaneCenter(Math.floor(Math.random() * 4)), startY + i * yInterval, 30, 50, "DUMMY", 2));
 }
 
 // const traffic = [
